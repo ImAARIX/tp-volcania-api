@@ -2,6 +2,7 @@ package com.lescours.volcaniaapi.controller;
 
 import com.lescours.volcaniaapi.model.Volcano;
 import com.lescours.volcaniaapi.service.VolcanoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("volcano")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class VolcanoController {
 
-    @Autowired
-    private VolcanoService volcanoService;
+    private final VolcanoService volcanoService;
 
     @GetMapping("{id}")
     public Volcano getVolcano(@PathVariable Long id) {
