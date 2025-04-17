@@ -5,13 +5,8 @@ WORKDIR /app
 
 ARG JAR_FILE
 ENV JAR_FILE=${JAR_FILE}
-ENV JAVA_OPTS="-Dnetworkaddress.cache.ttl=5 -Dnetworkaddress.cache.negative.ttl=5"
+ENV JAVA_OPTS="-Dnetworkaddress.cache.ttl=5 -Dnetworkaddress.cache.negative.ttl=5 -Dspring.profiles.active=dev-docker"
 ENV APP_BASE_DIR=/app
-
-# ENV SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
-# ENV SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.h2.Driver
-# ENV SPRING_DATASOURCE_USERNAME=sa
-# ENV SPRING_DATASOURCE_PASSWORD=sa
 
 COPY . .
 
